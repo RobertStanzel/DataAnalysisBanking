@@ -38,26 +38,37 @@ The dataset has 2,512 bank transactions and I used it to look into things like f
 
 ## What I found
 
-- 77% of transactions are Debit — ATM is almost exclusively used for withdrawals
-- Students have the highest average transaction amount (~$313) but the lowest account balance (~$1,570), which is a weird pattern
+- 77% of transactions are Debit, ATM is almost exclusively used for withdrawals
+- Students have the highest average transaction amount (aprox $313) but the lowest account balance (aprox $1,570), which is a weird pattern
 - Doctors hold way more in their accounts ($8,979 avg) but don't necessarily spend more
-- Around 5% of transactions have more than 1 login attempt — that's the main fraud signal I looked at
+- Around 5% of transactions have more than 1 login attempt, that's the main fraud signal I looked at
 - 122 suspicious transactions flagged with LoginAttempts ≥ 2, totaling $35,270
+- Online is the most balanced channel between Debit and Credit, unlike ATM which is almost exclusively used for withdrawals
+- Higher login attempts don't necessarily mean higher transaction amounts, the averages are pretty similar across all groups, so amount alone isn't a great fraud indicator
+- Jacksonville has the highest average login attempts across all cities, which could be worth investigating
+- Branch has the highest total transaction count out of the three channels
+- Students spend the most relative to their balance, on average they transact about 20% of their account balance per transaction, way more than any other occupation
+- Debit transactions outnumber Credit across every single channel, which suggests most customers use the bank primarily for spending rather than receiving money
+- The total amount tied to suspicious transactions ($35,270) represents about 4.7% of overall transaction volume, small percentage but non-trivial at scale
 
 ---
 
 ## Power BI Report
 
 **Page 1 – Channel & Transaction Type**
+Bar chart + pie chart showing how transactions are split across ATM, Branch, Online and between Debit/Credit.
 ![Channel and Transaction Type](screenshots/page1.png)
 
 **Page 2 – Fraud Indicators**
+Login attempts distribution and a table of suspicious transactions sorted by login attempts.
 ![Fraud Indicators](screenshots/page2.png)
 
 **Page 3 – Occupation Analysis**
+Side by side comparison of average transaction amount vs average account balance by occupation.
 ![Occupation Analysis](screenshots/page3.png)
 
 **Page 4 – Geographic Distribution**
+Azure Map with bubble size showing transaction count per US city.
 ![Geographic Map](screenshots/page4.png)
 
 ---
@@ -82,8 +93,8 @@ The dataset has 2,512 bank transactions and I used it to look into things like f
 
 ## Stack
 
-- **Microsoft Fabric** — Lakehouse, SQL Analytics Endpoint, Notebooks
-- **PySpark** — data loading, aggregations, filtering
-- **Pandas** — tabular display via `.toPandas()`
-- **Matplotlib + NumPy** — visualizations
-- **Power BI** — interactive dashboard
+- **Microsoft Fabric** - Lakehouse, SQL Analytics Endpoint, Notebooks
+- **PySpark** - data loading, aggregations, filtering
+- **Pandas** - tabular display via `.toPandas()`
+- **Matplotlib + NumPy** - visualizations
+- **Power BI** - interactive dashboard
