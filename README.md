@@ -57,18 +57,22 @@ The dataset has 2,512 bank transactions and I used it to look into things like f
 
 **Page 1 – Channel & Transaction Type**
 Bar chart + pie chart showing how transactions are split across ATM, Branch, Online and between Debit/Credit.
+
 ![Channel and Transaction Type](screenshots/page_1.png)
 
 **Page 2 – Fraud Indicators**
 Login attempts distribution and a table of suspicious transactions sorted by login attempts.
+
 ![Fraud Indicators](screenshots/page_2.png)
 
 **Page 3 – Occupation Analysis**
 Side by side comparison of average transaction amount vs average account balance by occupation.
+
 ![Occupation Analysis](screenshots/page_3.png)
 
 **Page 4 – Geographic Distribution**
 Azure Map with bubble size showing transaction count per US city.
+
 ![Geographic Map](screenshots/page_4.png)
 
 ---
